@@ -6,6 +6,8 @@
 #include <QSystemTrayIcon>
 #include <QCloseEvent>
 #include "setting.h"
+#include "QHotkey/qhotkey.h"
+#include "QHotkey/qhotkey_p.h"
 
 
 namespace Ui {
@@ -73,6 +75,8 @@ private:
     QString screenshot_img_base64;
     QString split_result;
     QString merge_result;
+
+    QHotkey *qk;
 
     QSystemTrayIcon *pSystemTray;
     setting *m_setting;

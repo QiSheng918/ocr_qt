@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+c01ce9ea40027ba89aec35f2d440cd1b CMakeFiles/ocr_qt_automoc
+8d09b20c2b2396a5c55c78ed8abcad30 CMakeFiles/qtGlobalShotcut_automoc

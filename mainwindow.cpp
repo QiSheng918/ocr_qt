@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->mergeButton,SIGNAL(clicked()),this,SLOT(onMergeButtonClicked()));
     connect(ui->exitTranslateButton,SIGNAL(clicked()),this,SLOT(onExitTranslateButtonClicked()));
 
-    this->setWindowIcon(QIcon("ocr.png"));
+    this->setWindowIcon(QIcon("../ocr.png"));
     this->resize(500,500);
     ui->frame->hide();
 
@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     pSystemTray->setContextMenu(pTrayMenu);
 
     pSystemTray->setToolTip("OCR软件");
-    pSystemTray->setIcon(QIcon("ocr.png"));
+    pSystemTray->setIcon(QIcon("../ocr.png"));
 
     connect(pTrayMenu, SIGNAL(showSettings()), this, SLOT(showSettings()));
     connect(pTrayMenu, SIGNAL(quit()), qApp, SLOT(quit()));
@@ -70,6 +70,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     pSystemTray->show();
     split_flag=1;
+
+    qk=new QHotkey(QKeySequence("ctrl+q"), true);
+    connect(qk, SIGNAL(activated()),this, SLOT(onScreenshotClicked()));
 
     qDebug()<<"program started!";
 }
@@ -83,6 +86,7 @@ MainWindow::~MainWindow(){
     if(pSystemTray!=NULL) delete  pSystemTray;
     if(m_setting!=NULL) delete m_setting;
     if(nam!=NULL) delete nam;
+    if(qk!=NULL) delete qk;
 }
 
 void MainWindow::showSettings(){
@@ -125,8 +129,8 @@ void MainWindow::onScreenshotClicked(){
     Screen *m = new Screen();
     QObject::connect(m,SIGNAL(sendNewStr(QString)),this,SLOT(getScreenshotImgBase64Str(QString)));
     QScreen *screen = QGuiApplication::primaryScreen();
-    screen->grabWindow(0).save("123.jpg","jpg");
-    m->fullScreen = QPixmap::grabWindow(QApplication::desktop()->winId());
+    QRect temp=screen->geometry();
+    m->fullScreen = screen->grabWindow(0,temp.left(),temp.top(),temp.width(),temp.height());
     m->showFullScreen();
 }
 
@@ -176,7 +180,7 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
     else {
         QJsonParseError json_error;
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
-        qDebug()<<parse_doucment;
+        // qDebug()<<parse_doucment;
         qDebug()<<parse_doucment.isEmpty();
         if(parse_doucment.isEmpty()){
             qDebug()<<"Failed";
@@ -190,12 +194,12 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
             qDebug()<<Array.size();
             for(int i=0;i<Array.size();i++){
                 temp+=Array[i].toArray()[0].toObject()["tgt"].toString();
-                temp+="\n";
+                // temp+="\n";
             }
             ui->translateEdit->setText(temp);
             ui->frame->show();
             this->resize(1000,500);
-            qDebug()<<temp;
+            // qDebug()<<temp;
         }
     }
     nam->deleteLater();
@@ -235,7 +239,7 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
     else {
         QJsonParseError json_error;
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
-        qDebug()<<parse_doucment;
+        // qDebug()<<parse_doucment;
         if(parse_doucment.isEmpty()){
             qDebug()<<"Failed";
             return;
@@ -246,7 +250,7 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
             QString temp;
             for(int i=0;i<Array.size();i++){
                 temp+=Array[i].toObject()["trans"].toString();
-                temp+="\n";
+                // temp+="\n";
             }
             ui->translateEdit->setText(temp);
             ui->frame->show();
@@ -276,7 +280,11 @@ void MainWindow::recognition(){
     nam = new QNetworkAccessManager(this);
     QUrl url;
     if(precise_flag==0) url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token="+accessToken);
-    else url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token="+accessToken);
+    else{
+        url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token="+accessToken);
+        // url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token="+accessToken);
+    }
+        
 
     QNetworkRequest request;
     request.setUrl(url);

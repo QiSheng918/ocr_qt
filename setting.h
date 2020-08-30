@@ -27,6 +27,7 @@ signals:
 private:
     Ui::setting *ui;
     QButtonGroup* m_pButtonGroup;
+    QButtonGroup* m_pDetectButtonGroup;
 };
 
 #endif // SETTING_H

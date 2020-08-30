@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/seven/git_rep/ocr_qt
+CMAKE_SOURCE_DIR = /home/seven/boot/ocr_qt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/seven/git_rep/ocr_qt/build
+CMAKE_BINARY_DIR = /home/seven/boot/ocr_qt/build
 
 # Utility rule file for qtGlobalShotcut_automoc.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/seven/git_rep/ocr_qt/build
 include CMakeFiles/qtGlobalShotcut_automoc.dir/progress.make
 
 CMakeFiles/qtGlobalShotcut_automoc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc, uic and rcc for target qtGlobalShotcut"
-	/usr/bin/cmake -E cmake_autogen /home/seven/git_rep/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/ ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc, uic and rcc for target qtGlobalShotcut"
+	/usr/bin/cmake -E cmake_autogen /home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/ ""
 
 qtGlobalShotcut_automoc: CMakeFiles/qtGlobalShotcut_automoc
 qtGlobalShotcut_automoc: CMakeFiles/qtGlobalShotcut_automoc.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/qtGlobalShotcut_automoc.dir/clean:
 .PHONY : CMakeFiles/qtGlobalShotcut_automoc.dir/clean
 
 CMakeFiles/qtGlobalShotcut_automoc.dir/depend:
-	cd /home/seven/git_rep/ocr_qt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seven/git_rep/ocr_qt /home/seven/git_rep/ocr_qt /home/seven/git_rep/ocr_qt/build /home/seven/git_rep/ocr_qt/build /home/seven/git_rep/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/seven/boot/ocr_qt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seven/boot/ocr_qt /home/seven/boot/ocr_qt /home/seven/boot/ocr_qt/build /home/seven/boot/ocr_qt/build /home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/qtGlobalShotcut_automoc.dir/depend
 

@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.cpp
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.cpp
 qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 qhotkey_p.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 QCoreApplication
 -
 QAbstractEventDispatcher
@@ -22,7 +22,7 @@ QThread
 QDebug
 -
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QObject
 -
 QKeySequence
@@ -32,9 +32,9 @@ QPair
 QLoggingCategory
 -
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QAbstractNativeEventFilter
 -
 QMultiHash
@@ -44,11 +44,11 @@ QMutex
 QGlobalStatic
 -
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_x11.cpp
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_x11.cpp
 qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 qhotkey_p.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 QDebug
 -
 QX11Info
@@ -60,27 +60,27 @@ X11/Xlib.h
 xcb/xcb.h
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_qhotkey.cpp
+/home/seven/boot/ocr_qt/build/moc_qhotkey.cpp
 ../QHotkey/qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_qhotkey_p.cpp
+/home/seven/boot/ocr_qt/build/moc_qhotkey_p.cpp
 ../QHotkey/qhotkey_p.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/qtGlobalShotcut_automoc.cpp
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_automoc.cpp
 moc_qhotkey.cpp
-/home/seven/git_rep/ocr_qt/build/moc_qhotkey.cpp
+/home/seven/boot/ocr_qt/build/moc_qhotkey.cpp
 moc_qhotkey_p.cpp
-/home/seven/git_rep/ocr_qt/build/moc_qhotkey_p.cpp
+/home/seven/boot/ocr_qt/build/moc_qhotkey_p.cpp
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractEventDispatcher
 qabstracteventdispatcher.h

@@ -15,6 +15,7 @@ signals:
     // 自定义信号
     void showSettings();
     void quit();
+    void showMainwindow();
 
 private:
     // 添加菜单项
@@ -24,6 +25,7 @@ private:
 //    QAction *m_pShowAction;
     QAction *m_pSettingAction;
     QAction *m_pQuitAction;
+    QAction *m_pShowMainwindowAction;
 };
 
 #endif // TRAYMENU_H

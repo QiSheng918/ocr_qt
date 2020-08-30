@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     font_en.setWeight(25);
     ui->resultEdit->setFont(font_ch);
     ui->resultEdit->setFont(font_en);
-//    ui->resultEdit->setFont(QFont(tr("SimSun"), 11,QFont::UltraExpanded,QFont::Normal));
+
 
     ui->translateEdit->setFont(font_ch);
     ui->translateEdit->setFont(font_en);
@@ -66,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect(pTrayMenu, SIGNAL(showSettings()), this, SLOT(showSettings()));
     connect(pTrayMenu, SIGNAL(quit()), qApp, SLOT(quit()));
+    connect(pTrayMenu, SIGNAL(showMainwindow()), this, SLOT(showMainwindow()));
     connect(pSystemTray , SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(onActivated(QSystemTrayIcon::ActivationReason)));
 
     pSystemTray->show();
@@ -75,6 +76,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(qk, SIGNAL(activated()),this, SLOT(onScreenshotClicked()));
 
     qDebug()<<"program started!";
+    this->hide();
 }
 
 void MainWindow::onActivated(QSystemTrayIcon::ActivationReason reason){
@@ -96,8 +98,11 @@ void MainWindow::showSettings(){
 }
 
 void MainWindow::closeSettings(){
-    m_setting->close();
-    m_setting->deleteLater();
+    if(m_setting!=nullptr){
+        m_setting->hide();
+        m_setting->deleteLater();        
+    }
+    
     this->loadConfigSettings();
 }
 
@@ -108,28 +113,50 @@ void MainWindow::getScreenshotImgBase64Str(QString str) {
         return;
     }
     getTextByApi();
+//    this->show();
+}
+
+void MainWindow::showMainwindow() {
+    this->show();
+    if( windowState() != Qt::WindowActive){
+        setWindowState( Qt::WindowActive);//正常化父窗体
+    }
+    //延时等待父窗体正常化 延时250毫秒
+    QTime _Timer = QTime::currentTime().addMSecs(250);
+    while( QTime::currentTime() < _Timer ){
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    }
 }
 
 /**
  * 截图槽函数
  */
 void MainWindow::onScreenshotClicked(){
-
+    this->show();
+//    this->hide();
+    ui->frame->hide();
     //截图之前隐去窗体，不然截图之中就会有窗体的存在
     if( windowState() != Qt::WindowMinimized ){
         setWindowState( Qt::WindowMinimized );//最小化父窗体
     }
     //延时等待父窗体最小化 延时250毫秒
-    QTime _Timer = QTime::currentTime().addMSecs(250);
+    QTime _Timer = QTime::currentTime().addMSecs(350);
     while( QTime::currentTime() < _Timer ){
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
+//    qDebug()<<windowState();
 
     ui->resultEdit->setPlainText("");
     Screen *m = new Screen();
     QObject::connect(m,SIGNAL(sendNewStr(QString)),this,SLOT(getScreenshotImgBase64Str(QString)));
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect temp=screen->geometry();
+//    qDebug()<<temp;
+//    m->fullScreen = screen->grabWindow(0);
+//    QDesktopWidget* desktop = QApplication::desktop();
+//    qDebug()<<desktop->screenGeometry(0);
+//    m->setGeometry(desktop->screenGeometry(0));
+
     m->fullScreen = screen->grabWindow(0,temp.left(),temp.top(),temp.width(),temp.height());
     m->showFullScreen();
 }
@@ -147,8 +174,6 @@ void MainWindow::translateByYoudao(){
     QNetworkRequest request;
     QString temp=ui->resultEdit->toPlainText();
     qDebug()<<temp;
-//    if(split_flag) temp=split_result;
-//    else temp=merge_result;
 
     QUrl url;
     url.setUrl("http://fanyi.youdao.com/translate?");
@@ -188,10 +213,9 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
         }
         if(parse_doucment.isObject()){
             QJsonObject obj = parse_doucment.object();
-//            qDebug()<<obj;
             QJsonArray Array=obj["translateResult"].toArray();
             QString temp;
-            qDebug()<<Array.size();
+//            qDebug()<<Array.size();
             for(int i=0;i<Array.size();i++){
                 temp+=Array[i].toArray()[0].toObject()["tgt"].toString();
                 // temp+="\n";
@@ -210,10 +234,9 @@ void MainWindow::translateByGoogle(){
     QUrl url;
     url.setUrl("http://translate.google.cn/translate_a/single?");
     QNetworkRequest request;
-//    QString temp;
+
     QString temp=ui->resultEdit->toPlainText();
-//    if(split_flag) temp=split_result;
-//    else temp=merge_result;
+
     QUrlQuery params;
     params.addQueryItem("client", "gtx");
     params.addQueryItem("dt", "t");
@@ -263,40 +286,9 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
 
 
 void MainWindow::getTextByApi(){
-    getAccessToken();
-    recognition();
+    if(detect_flag==0) recognitionByBaidu();
+    else recognitionByTencent();
 }
-
-
-/**
- * 通用文字识别
- */
-void MainWindow::recognition(){
-    QString parm=screenshot_img_base64;
-    if(parm.isEmpty()){
-        QMessageBox::information(NULL, "错误", "图像数据不能为空");
-        return;
-    }
-    nam = new QNetworkAccessManager(this);
-    QUrl url;
-    if(precise_flag==0) url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token="+accessToken);
-    else{
-        url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token="+accessToken);
-        // url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token="+accessToken);
-    }
-        
-
-    QNetworkRequest request;
-    request.setUrl(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader,QVariant("application/x-www-form-urlencoded"));
-    QByteArray byteArr;
-    byteArr.append("image=");
-    byteArr.append(QUrl::toPercentEncoding(parm));
-    connect(nam, &QNetworkAccessManager::finished,this, &MainWindow::recognitionRequestFinished);
-    QNetworkReply* reply = nam->post(request,byteArr);
-}
-
-
 
 /**
  * 获取百度Access Token
@@ -344,11 +336,37 @@ void MainWindow::getAccessTokenRequestFinished(QNetworkReply* reply) {
 }
 
 
+void MainWindow::recognitionByBaidu(){
+    this->getAccessToken();
+    QString parm=screenshot_img_base64;
+    if(parm.isEmpty()){
+        QMessageBox::information(NULL, "错误", "图像数据不能为空");
+        return;
+    }
+    nam = new QNetworkAccessManager(this);
+    QUrl url;
+    if(precise_flag==0) url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token="+accessToken);
+    else{
+        url.setUrl("https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token="+accessToken);
+    }
+        
+
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader,QVariant("application/x-www-form-urlencoded"));
+    QByteArray byteArr;
+    byteArr.append("image=");
+    byteArr.append(QUrl::toPercentEncoding(parm));
+    connect(nam, &QNetworkAccessManager::finished,this, &MainWindow::recognitionRequestByBaiduFinished);
+    QNetworkReply* reply = nam->post(request,byteArr);
+}
+
+
 
 /**
  * 文字识别的信号槽
  */
-void MainWindow::recognitionRequestFinished(QNetworkReply* reply){
+void MainWindow::recognitionRequestByBaiduFinished(QNetworkReply* reply){
     QNetworkReply::NetworkError err = reply->error();
     if(err != QNetworkReply::NoError) {
         qDebug() << "Failed: " << reply->errorString();
@@ -393,7 +411,102 @@ void MainWindow::recognitionRequestFinished(QNetworkReply* reply){
     nam->deleteLater();
 }
 
+void MainWindow::recognitionByTencent(){
+//    qDebug()<<"U are in recognitionByTencent";
+    QString parm=screenshot_img_base64;
+    if(parm.isEmpty()){
+        QMessageBox::information(NULL, "错误", "图像数据不能为空");
+        return;
+    }
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    int a = qrand()%10000000;
+    int t=QDateTime::currentDateTime().toTime_t();
 
+    QUrl url;
+    url.setUrl("https://api.ai.qq.com/fcgi-bin/ocr/ocr_generalocr");
+
+    QMap<QString,QString> key_map;
+    key_map.insert("app_id","2156138400");
+    key_map.insert("time_stamp",QString::number(t));
+    key_map.insert("nonce_str",QString::number(a));
+    key_map.insert("image",parm);
+    QByteArray ba;
+    QString appkey = "zImPou8at9qEM4db";
+    QMap<QString,QString>::Iterator it=key_map.begin();
+    while(it!=key_map.end())
+    {
+        ba.append(QUrl::toPercentEncoding(it.key()));
+        ba.append("=");
+        ba.append(QUrl::toPercentEncoding(it.value()));
+        ba.append("&");
+        it++;
+    }
+    ba.append("app_key=");
+    ba.append(QUrl::toPercentEncoding(appkey));
+
+    QByteArray bytePwdMd5 = QCryptographicHash::hash(ba, QCryptographicHash::Md5);
+    QString strPwdMd5 = bytePwdMd5.toHex();
+    QString sign=strPwdMd5.toUpper();
+    QByteArray byteArr;
+    ba.append("&sign=");
+    ba.append(QUrl::toPercentEncoding(sign));
+
+    nam = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader,QVariant("application/x-www-form-urlencoded"));
+    connect(nam, &QNetworkAccessManager::finished,this, &MainWindow::recognitionRequestByTencentFinished);
+    QNetworkReply* reply = nam->post(request,ba);
+}
+
+void MainWindow::recognitionRequestByTencentFinished(QNetworkReply* reply){
+    QNetworkReply::NetworkError err = reply->error();
+    if(err != QNetworkReply::NoError) {
+        qDebug() << "Failed: " << reply->errorString();
+        QMessageBox::information(NULL, "错误", "识别出错");
+    }
+    else {
+        // 获取返回内容
+        QJsonParseError json_error;
+        QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
+//        qDebug()<<parse_doucment;
+        if(parse_doucment.isObject()){
+            QJsonObject obj = parse_doucment.object();
+            int ret_flag = obj["ret"].toInt();
+            if(ret_flag == 0){
+                split_result.clear();
+                merge_result.clear();
+
+//                qDebug()<<obj["data"].toObject()["item_list"].toArray();
+                QJsonArray jsonArr = obj["data"].toObject()["item_list"].toArray();
+                for(int i=0;i<jsonArr.size();i++){
+                    split_result.append(jsonArr[i].toObject()["itemstring"].toString());
+                    split_result.append("\n");
+                    merge_result.append(jsonArr[i].toObject()["itemstring"].toString());
+
+                }
+                ui->resultEdit->setText(split_result);
+                if(!split_result.isEmpty()&&copy_flag==1){
+                    QClipboard *board = QApplication::clipboard();
+                    board->setText(split_result);
+                }
+            }
+            else{
+                QMessageBox::information(NULL, "提示", "无法识别图片内容");
+            }
+        }
+
+        if( windowState() != Qt::WindowActive){
+            setWindowState( Qt::WindowActive);//正常化父窗体
+        }
+        //延时等待父窗体正常化 延时250毫秒
+        QTime _Timer = QTime::currentTime().addMSecs(250);
+        while( QTime::currentTime() < _Timer ){
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        }
+    }
+    nam->deleteLater();
+}
 
 void MainWindow::onSplitButtonClicked()
 {
@@ -414,6 +527,7 @@ void MainWindow::loadConfigSettings(){
     translate_flag=configIniRead->value("translate").toInt();
     precise_flag=configIniRead->value("precise").toInt();
     copy_flag=configIniRead->value("autoCopy").toInt();
+    detect_flag=configIniRead->value("detect").toInt();
     delete configIniRead;
 }
 
@@ -429,7 +543,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
     event->ignore();
-    //    this->hide();
+    this->hide();
 }
 
 

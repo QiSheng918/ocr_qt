@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/seven/git_rep/ocr_qt/main.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/main.cpp.o"
-  "/home/seven/git_rep/ocr_qt/mainwindow.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/mainwindow.cpp.o"
-  "/home/seven/git_rep/ocr_qt/build/ocr_qt_automoc.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o"
-  "/home/seven/git_rep/ocr_qt/screen.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/screen.cpp.o"
-  "/home/seven/git_rep/ocr_qt/setting.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/setting.cpp.o"
-  "/home/seven/git_rep/ocr_qt/traymenu.cpp" "/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/traymenu.cpp.o"
+  "/home/seven/boot/ocr_qt/main.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/main.cpp.o"
+  "/home/seven/boot/ocr_qt/mainwindow.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/mainwindow.cpp.o"
+  "/home/seven/boot/ocr_qt/build/ocr_qt_automoc.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o"
+  "/home/seven/boot/ocr_qt/screen.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/screen.cpp.o"
+  "/home/seven/boot/ocr_qt/setting.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/setting.cpp.o"
+  "/home/seven/boot/ocr_qt/traymenu.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/traymenu.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -39,7 +39,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/seven/git_rep/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/DependInfo.cmake"
+  "/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

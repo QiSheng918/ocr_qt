@@ -1,6 +1,6 @@
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/edit_cache.dir
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/rebuild_cache.dir
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir
-/home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt_automoc.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/edit_cache.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/rebuild_cache.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir
+/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt_automoc.dir

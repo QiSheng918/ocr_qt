@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/seven/git_rep/ocr_qt
+CMAKE_SOURCE_DIR = /home/seven/boot/ocr_qt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/seven/git_rep/ocr_qt/build
+CMAKE_BINARY_DIR = /home/seven/boot/ocr_qt/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ocr_qt.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/ocr_qt.dir/flags.make
 
 CMakeFiles/ocr_qt.dir/main.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ocr_qt.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/main.cpp.o -c /home/seven/git_rep/ocr_qt/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ocr_qt.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/main.cpp.o -c /home/seven/boot/ocr_qt/main.cpp
 
 CMakeFiles/ocr_qt.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/main.cpp > CMakeFiles/ocr_qt.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/main.cpp > CMakeFiles/ocr_qt.dir/main.cpp.i
 
 CMakeFiles/ocr_qt.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/main.cpp -o CMakeFiles/ocr_qt.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/main.cpp -o CMakeFiles/ocr_qt.dir/main.cpp.s
 
 CMakeFiles/ocr_qt.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/ocr_qt.dir/main.cpp.o.provides.build: CMakeFiles/ocr_qt.dir/main.cpp.
 
 CMakeFiles/ocr_qt.dir/screen.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/screen.cpp.o: ../screen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ocr_qt.dir/screen.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/screen.cpp.o -c /home/seven/git_rep/ocr_qt/screen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ocr_qt.dir/screen.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/screen.cpp.o -c /home/seven/boot/ocr_qt/screen.cpp
 
 CMakeFiles/ocr_qt.dir/screen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/screen.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/screen.cpp > CMakeFiles/ocr_qt.dir/screen.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/screen.cpp > CMakeFiles/ocr_qt.dir/screen.cpp.i
 
 CMakeFiles/ocr_qt.dir/screen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/screen.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/screen.cpp -o CMakeFiles/ocr_qt.dir/screen.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/screen.cpp -o CMakeFiles/ocr_qt.dir/screen.cpp.s
 
 CMakeFiles/ocr_qt.dir/screen.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/ocr_qt.dir/screen.cpp.o.provides.build: CMakeFiles/ocr_qt.dir/screen.
 
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: ../mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ocr_qt.dir/mainwindow.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/mainwindow.cpp.o -c /home/seven/git_rep/ocr_qt/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ocr_qt.dir/mainwindow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/mainwindow.cpp.o -c /home/seven/boot/ocr_qt/mainwindow.cpp
 
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/mainwindow.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/mainwindow.cpp > CMakeFiles/ocr_qt.dir/mainwindow.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/mainwindow.cpp > CMakeFiles/ocr_qt.dir/mainwindow.cpp.i
 
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/mainwindow.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/mainwindow.cpp -o CMakeFiles/ocr_qt.dir/mainwindow.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/mainwindow.cpp -o CMakeFiles/ocr_qt.dir/mainwindow.cpp.s
 
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/ocr_qt.dir/mainwindow.cpp.o.provides.build: CMakeFiles/ocr_qt.dir/mai
 
 CMakeFiles/ocr_qt.dir/setting.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/setting.cpp.o: ../setting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ocr_qt.dir/setting.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/setting.cpp.o -c /home/seven/git_rep/ocr_qt/setting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ocr_qt.dir/setting.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/setting.cpp.o -c /home/seven/boot/ocr_qt/setting.cpp
 
 CMakeFiles/ocr_qt.dir/setting.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/setting.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/setting.cpp > CMakeFiles/ocr_qt.dir/setting.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/setting.cpp > CMakeFiles/ocr_qt.dir/setting.cpp.i
 
 CMakeFiles/ocr_qt.dir/setting.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/setting.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/setting.cpp -o CMakeFiles/ocr_qt.dir/setting.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/setting.cpp -o CMakeFiles/ocr_qt.dir/setting.cpp.s
 
 CMakeFiles/ocr_qt.dir/setting.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/ocr_qt.dir/setting.cpp.o.provides.build: CMakeFiles/ocr_qt.dir/settin
 
 CMakeFiles/ocr_qt.dir/traymenu.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/traymenu.cpp.o: ../traymenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ocr_qt.dir/traymenu.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/traymenu.cpp.o -c /home/seven/git_rep/ocr_qt/traymenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ocr_qt.dir/traymenu.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/traymenu.cpp.o -c /home/seven/boot/ocr_qt/traymenu.cpp
 
 CMakeFiles/ocr_qt.dir/traymenu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/traymenu.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/traymenu.cpp > CMakeFiles/ocr_qt.dir/traymenu.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/traymenu.cpp > CMakeFiles/ocr_qt.dir/traymenu.cpp.i
 
 CMakeFiles/ocr_qt.dir/traymenu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/traymenu.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/traymenu.cpp -o CMakeFiles/ocr_qt.dir/traymenu.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/traymenu.cpp -o CMakeFiles/ocr_qt.dir/traymenu.cpp.s
 
 CMakeFiles/ocr_qt.dir/traymenu.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/ocr_qt.dir/traymenu.cpp.o.provides.build: CMakeFiles/ocr_qt.dir/traym
 
 CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o: CMakeFiles/ocr_qt.dir/flags.make
 CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o: ocr_qt_automoc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o -c /home/seven/git_rep/ocr_qt/build/ocr_qt_automoc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o -c /home/seven/boot/ocr_qt/build/ocr_qt_automoc.cpp
 
 CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/git_rep/ocr_qt/build/ocr_qt_automoc.cpp > CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seven/boot/ocr_qt/build/ocr_qt_automoc.cpp > CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.i
 
 CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/git_rep/ocr_qt/build/ocr_qt_automoc.cpp -o CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seven/boot/ocr_qt/build/ocr_qt_automoc.cpp -o CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.s
 
 CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o.requires:
 
@@ -220,14 +220,18 @@ ocr_qt: CMakeFiles/ocr_qt.dir/setting.cpp.o
 ocr_qt: CMakeFiles/ocr_qt.dir/traymenu.cpp.o
 ocr_qt: CMakeFiles/ocr_qt.dir/ocr_qt_automoc.cpp.o
 ocr_qt: CMakeFiles/ocr_qt.dir/build.make
+ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1
 ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.5.1
 ocr_qt: libqtGlobalShotcut.so
-ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1
+ocr_qt: /usr/lib/x86_64-linux-gnu/libSM.so
+ocr_qt: /usr/lib/x86_64-linux-gnu/libICE.so
+ocr_qt: /usr/lib/x86_64-linux-gnu/libX11.so
+ocr_qt: /usr/lib/x86_64-linux-gnu/libXext.so
 ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5X11Extras.so.5.5.1
 ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1
 ocr_qt: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1
 ocr_qt: CMakeFiles/ocr_qt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/seven/git_rep/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ocr_qt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ocr_qt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ocr_qt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -249,6 +253,6 @@ CMakeFiles/ocr_qt.dir/clean:
 .PHONY : CMakeFiles/ocr_qt.dir/clean
 
 CMakeFiles/ocr_qt.dir/depend:
-	cd /home/seven/git_rep/ocr_qt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seven/git_rep/ocr_qt /home/seven/git_rep/ocr_qt /home/seven/git_rep/ocr_qt/build /home/seven/git_rep/ocr_qt/build /home/seven/git_rep/ocr_qt/build/CMakeFiles/ocr_qt.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/seven/boot/ocr_qt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seven/boot/ocr_qt /home/seven/boot/ocr_qt /home/seven/boot/ocr_qt/build /home/seven/boot/ocr_qt/build /home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ocr_qt.dir/depend
 

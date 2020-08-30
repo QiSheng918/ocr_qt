@@ -31,14 +31,19 @@ public:
 
     void getAccessToken();
     void getTextByApi();
-    void recognition();
+
 
 
 private slots:
+//    void recognition();
+
+    void recognitionByBaidu();
+    void recognitionByTencent();
     void getScreenshotImgBase64Str(QString);
 
     void getAccessTokenRequestFinished(QNetworkReply* reply);
-    void recognitionRequestFinished(QNetworkReply* reply);
+    void recognitionRequestByTencentFinished(QNetworkReply* reply);
+    void recognitionRequestByBaiduFinished(QNetworkReply* reply);
 
     void translateByGoogle();
     void translateByYoudao();
@@ -58,6 +63,8 @@ private slots:
     void loadConfigSettings();
 
     void onActivated(QSystemTrayIcon::ActivationReason reason);
+    
+    void showMainwindow();
 
 private:
     Ui::MainWindow *ui;
@@ -71,6 +78,7 @@ private:
     int copy_flag;
     int translate_flag;
     int split_flag;
+    int detect_flag;
 
     QString screenshot_img_base64;
     QString split_result;

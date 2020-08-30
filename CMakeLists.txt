@@ -12,31 +12,37 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 message("start")
 
-find_package(Qt5 COMPONENTS Widgets Core Gui X11Extras REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Core Gui REQUIRED)
 find_package(Qt5Network)
 
+set(LIBs Qt5::Widgets Qt5::Core Qt5::Gui)
 INCLUDE_DIRECTORIES(
-  QHotkey
+   QHotkey
 )
 
-set(qt_src
-    QHotkey/qhotkey_x11.cpp
-    QHotkey/qhotkey.cpp
+set(SRC_FILES  QHotkey/qhotkey.cpp)
 
-)
-set(qt_hdr
-    QHotkey/qhotkey_p.h
-    QHotkey/qhotkey.h
-   )
+MESSAGE(STSTUS "###################################")
+MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}") 
+IF (WIN32)
+	MESSAGE(STATUS "Now is windows")
+	set(SRC_FILES ${SRC_FILES} QHotkey/qhotkey_win.cpp)
+ELSEIF (UNIX)
+	MESSAGE(STATUS "Now is UNIX-like OS's.")
+	find_package(X11 REQUIRED)
+    find_package(Qt5X11Extras REQUIRED)
+    include_directories(${X11_INCLUDE_DIR})
+    set(LIBS ${LIBS} ${X11_LIBRARIES} Qt5::X11Extras)
+    set(SRC_FILES ${SRC_FILES} QHotkey/qhotkey_x11.cpp)
+ELSEIF (APPLE)
+	MESSAGE(STATUS "Now is Apple systens.")
+ENDIF ()
 
+MESSAGE(STSTUS "###################################")
 
+add_library(qtGlobalShotcut SHARED ${SRC_FILES})
+target_link_libraries(qtGlobalShotcut  ${LIBS})
 
-add_library(qtGlobalShotcut SHARED ${qt_src} )
-target_link_libraries(qtGlobalShotcut Qt5::Widgets Qt5::Core Qt5::Gui Qt5::X11Extras)
-#foreach(p1ugin ${Qt5Network_PLUGINS})
-#    get_target_property(1oc ${p1ugin} LOCATION)
-#    message("P1ugin ${p1ugin} is at location ${1oc}")
-#endforeach()
 add_executable(ocr_qt
   main.cpp
   screen.h
@@ -50,14 +56,12 @@ add_executable(ocr_qt
   setting.ui
   traymenu.h
   traymenu.cpp
-  # QHotkey/qhotkey_x11.cpp
-  # QHotkey/qhotkey.cpp
-  # QHotkey/qhotkey_p.h
-  # QHotkey/qhotkey.h
 )
 
 target_link_libraries(ocr_qt 
- 
-Qt5::Widgets Qt5::Core Qt5::Network Qt5::X11Extras Qt5::Gui
+Qt5::Widgets 
+Qt5::Core 
+Qt5::Network 
+Qt5::Gui
 qtGlobalShotcut
 )

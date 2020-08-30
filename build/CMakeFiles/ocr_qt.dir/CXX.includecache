@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QObject
 -
 QKeySequence
@@ -16,9 +16,9 @@ QPair
 QLoggingCategory
 -
 
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QAbstractNativeEventFilter
 -
 QMultiHash
@@ -28,63 +28,63 @@ QMutex
 QGlobalStatic
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_mainwindow.cpp
+/home/seven/boot/ocr_qt/build/moc_mainwindow.cpp
 ../mainwindow.h
-/home/seven/git_rep/ocr_qt/mainwindow.h
+/home/seven/boot/ocr_qt/mainwindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_screen.cpp
+/home/seven/boot/ocr_qt/build/moc_screen.cpp
 ../screen.h
-/home/seven/git_rep/ocr_qt/screen.h
+/home/seven/boot/ocr_qt/screen.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_setting.cpp
+/home/seven/boot/ocr_qt/build/moc_setting.cpp
 ../setting.h
-/home/seven/git_rep/ocr_qt/setting.h
+/home/seven/boot/ocr_qt/setting.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/moc_traymenu.cpp
+/home/seven/boot/ocr_qt/build/moc_traymenu.cpp
 ../traymenu.h
-/home/seven/git_rep/ocr_qt/traymenu.h
+/home/seven/boot/ocr_qt/traymenu.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/git_rep/ocr_qt/build/ocr_qt_automoc.cpp
+/home/seven/boot/ocr_qt/build/ocr_qt_automoc.cpp
 moc_mainwindow.cpp
-/home/seven/git_rep/ocr_qt/build/moc_mainwindow.cpp
+/home/seven/boot/ocr_qt/build/moc_mainwindow.cpp
 moc_screen.cpp
-/home/seven/git_rep/ocr_qt/build/moc_screen.cpp
+/home/seven/boot/ocr_qt/build/moc_screen.cpp
 moc_setting.cpp
-/home/seven/git_rep/ocr_qt/build/moc_setting.cpp
+/home/seven/boot/ocr_qt/build/moc_setting.cpp
 moc_traymenu.cpp
-/home/seven/git_rep/ocr_qt/build/moc_traymenu.cpp
+/home/seven/boot/ocr_qt/build/moc_traymenu.cpp
 
-/home/seven/git_rep/ocr_qt/main.cpp
+/home/seven/boot/ocr_qt/main.cpp
 mainwindow.h
-/home/seven/git_rep/ocr_qt/mainwindow.h
+/home/seven/boot/ocr_qt/mainwindow.h
 QApplication
 -
 
-/home/seven/git_rep/ocr_qt/mainwindow.cpp
+/home/seven/boot/ocr_qt/mainwindow.cpp
 mainwindow.h
-/home/seven/git_rep/ocr_qt/mainwindow.h
+/home/seven/boot/ocr_qt/mainwindow.h
 ui_mainwindow.h
-/home/seven/git_rep/ocr_qt/ui_mainwindow.h
+/home/seven/boot/ocr_qt/ui_mainwindow.h
 screen.h
-/home/seven/git_rep/ocr_qt/screen.h
+/home/seven/boot/ocr_qt/screen.h
 traymenu.h
-/home/seven/git_rep/ocr_qt/traymenu.h
+/home/seven/boot/ocr_qt/traymenu.h
 QMessageBox
 -
 QString
@@ -126,7 +126,7 @@ QUrlQuery
 QScreen
 -
 
-/home/seven/git_rep/ocr_qt/mainwindow.h
+/home/seven/boot/ocr_qt/mainwindow.h
 QMainWindow
 -
 QNetworkAccessManager
@@ -136,15 +136,15 @@ QSystemTrayIcon
 QCloseEvent
 -
 setting.h
-/home/seven/git_rep/ocr_qt/setting.h
+/home/seven/boot/ocr_qt/setting.h
 QHotkey/qhotkey.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QHotkey/qhotkey_p.h
-/home/seven/git_rep/ocr_qt/QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 
-/home/seven/git_rep/ocr_qt/screen.cpp
+/home/seven/boot/ocr_qt/screen.cpp
 screen.h
-/home/seven/git_rep/ocr_qt/screen.h
+/home/seven/boot/ocr_qt/screen.h
 QDebug
 -
 QImage
@@ -154,9 +154,9 @@ QBuffer
 QString
 -
 mainwindow.h
-/home/seven/git_rep/ocr_qt/mainwindow.h
+/home/seven/boot/ocr_qt/mainwindow.h
 
-/home/seven/git_rep/ocr_qt/screen.h
+/home/seven/boot/ocr_qt/screen.h
 QWidget
 -
 QPoint
@@ -192,7 +192,7 @@ QRect
 QFile
 -
 
-/home/seven/git_rep/ocr_qt/setting.cpp
+/home/seven/boot/ocr_qt/setting.cpp
 QSettings
 -
 QDebug
@@ -200,11 +200,11 @@ QDebug
 QMessageBox
 -
 setting.h
-/home/seven/git_rep/ocr_qt/setting.h
+/home/seven/boot/ocr_qt/setting.h
 ui_setting.h
-/home/seven/git_rep/ocr_qt/ui_setting.h
+/home/seven/boot/ocr_qt/ui_setting.h
 
-/home/seven/git_rep/ocr_qt/setting.h
+/home/seven/boot/ocr_qt/setting.h
 QDialog
 -
 QAbstractButton
@@ -212,11 +212,11 @@ QAbstractButton
 QButtonGroup
 -
 
-/home/seven/git_rep/ocr_qt/traymenu.cpp
+/home/seven/boot/ocr_qt/traymenu.cpp
 traymenu.h
-/home/seven/git_rep/ocr_qt/traymenu.h
+/home/seven/boot/ocr_qt/traymenu.h
 
-/home/seven/git_rep/ocr_qt/traymenu.h
+/home/seven/boot/ocr_qt/traymenu.h
 QMenu
 -
 

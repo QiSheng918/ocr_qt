@@ -17,6 +17,7 @@ setting::setting(QWidget *parent) :
     int translate_flag=configIniRead->value("translate").toInt();
     int precise_flag=configIniRead->value("precise").toInt();
     int copy_flag=configIniRead->value("autoCopy").toInt();
+    int detect_flag=configIniRead->value("detect").toInt();
     m_pButtonGroup = new QButtonGroup(this);
     m_pButtonGroup->setExclusive(true);
     m_pButtonGroup->addButton(ui->googleradioButton,0);
@@ -24,12 +25,20 @@ setting::setting(QWidget *parent) :
     if(translate_flag==0) ui->googleradioButton->setChecked(true);
     else ui->youdaoRadioButton->setChecked(true);
 
+    m_pDetectButtonGroup = new QButtonGroup(this);
+    m_pDetectButtonGroup->setExclusive(true);
+    m_pDetectButtonGroup->addButton(ui->baiduRadioButton,0);
+    m_pDetectButtonGroup->addButton(ui->tencentRadioButton,1);
+    if(detect_flag==0) ui->baiduRadioButton->setChecked(true);
+    else ui->tencentRadioButton->setChecked(true);
+
     qDebug()<<precise_flag;
     if(precise_flag==0) ui->preciseCheckBox->setCheckState(Qt::Unchecked);
     else ui->preciseCheckBox->setCheckState(Qt::Checked);
-//    qDebug()<<copy_flag;
     if(copy_flag==0) ui->autoCopyCheckBox->setCheckState(Qt::Unchecked);
     else ui->autoCopyCheckBox->setCheckState(Qt::Checked);
+
+
     delete configIniRead;
 //    connect(m_pButtonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
     connect(ui->saveButton,SIGNAL(clicked()),this,SLOT(onSaveButtonClicked()));
@@ -56,6 +65,7 @@ setting::~setting()
 {
     delete ui;
     delete m_pButtonGroup;
+    delete m_pDetectButtonGroup;
 }
 
 void setting::onSaveButtonClicked()
@@ -73,14 +83,17 @@ void setting::onSaveButtonClicked()
     qDebug()<<precise_flag;
     int translate_id=m_pButtonGroup->checkedId();
     configIniWrite->setValue("translate",translate_id);
+
+    int detect_id=m_pDetectButtonGroup->checkedId();
+    configIniWrite->setValue("detect",detect_id);
+
     delete  configIniWrite;
+
     QMessageBox::information(NULL, "成功", "保存成功");
     Q_EMIT closeSettings();
-//    this->close();
 }
 
 void setting::onExitButtonClicked()
 {
     Q_EMIT closeSettings();
-//    this->close();
 }

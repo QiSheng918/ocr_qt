@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "qtGlobalShotcut_automoc.cpp"
   "ocr_qt_automoc.cpp"
-  "CMakeFiles/qtGlobalShotcut.dir/QHotkey/qhotkey_x11.cpp.o"
   "CMakeFiles/qtGlobalShotcut.dir/QHotkey/qhotkey.cpp.o"
+  "CMakeFiles/qtGlobalShotcut.dir/QHotkey/qhotkey_x11.cpp.o"
   "CMakeFiles/qtGlobalShotcut.dir/qtGlobalShotcut_automoc.cpp.o"
   "libqtGlobalShotcut.pdb"
   "libqtGlobalShotcut.so"

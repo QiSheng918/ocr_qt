@@ -1,12 +1,12 @@
 # ocr_qt
 
-## an OCR software developed by Qt
+an OCR software developed by Qt
+
 
 this software used API by Baidu or Tencent to perform text recognition in the screenshot
-
 After recognition,you can translate the sentence by google tranlation or youdao
 
-## usage method:
+# Usage:
 
 git this repository to your workspace and cd the git directory
 
@@ -16,6 +16,9 @@ Next ***cmake ..***
 
 Then ***make***
 
+# Example
 ![Image text](https://github.com/Seven1996/ocr_qt/blob/master/IMAGE/readme.png)
 
-## test environment: ubuntu16.04
+# Test Environment
+
+ubuntu16.04

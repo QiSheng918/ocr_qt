@@ -1,11 +1,12 @@
 # Abstract
 ### an crossplat OCR software developed by Qt
 
-this software used API by Baidu or Tencent to perform text recognition in the screenshot
 
+
+this software used API by Baidu or Tencent to perform text recognition in the screenshot
 After recognition,you can translate the sentence by google tranlation or youdao
 
-## usage method:
+# Usage:
 
 1. git this repository to your workspace and cd the git directory
 

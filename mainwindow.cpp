@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->mergeButton,SIGNAL(clicked()),this,SLOT(onMergeButtonClicked()));
     connect(ui->exitTranslateButton,SIGNAL(clicked()),this,SLOT(onExitTranslateButtonClicked()));
 
-    this->setWindowIcon(QIcon("../ocr.png"));
+    this->setWindowIcon(QIcon("./ocr.png"));
     this->resize(500,500);
     ui->frame->hide();
 
@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     pSystemTray->setContextMenu(pTrayMenu);
 
     pSystemTray->setToolTip("OCR软件");
-    pSystemTray->setIcon(QIcon("../ocr.png"));
+    pSystemTray->setIcon(QIcon("./ocr.png"));
 
     connect(pTrayMenu, SIGNAL(showSettings()), this, SLOT(showSettings()));
     connect(pTrayMenu, SIGNAL(quit()), qApp, SLOT(quit()));

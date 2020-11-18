@@ -55,7 +55,7 @@ include CMakeFiles/ocr_qt_automoc.dir/progress.make
 
 CMakeFiles/ocr_qt_automoc:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc, uic and rcc for target ocr_qt"
-	/usr/bin/cmake -E cmake_autogen /home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt_automoc.dir/ ""
+	/usr/bin/cmake -E cmake_autogen /home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt_automoc.dir/ Release
 
 ocr_qt_automoc: CMakeFiles/ocr_qt_automoc
 ocr_qt_automoc: CMakeFiles/ocr_qt_automoc.dir/build.make

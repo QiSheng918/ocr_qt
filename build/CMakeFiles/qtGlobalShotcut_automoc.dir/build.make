@@ -55,7 +55,7 @@ include CMakeFiles/qtGlobalShotcut_automoc.dir/progress.make
 
 CMakeFiles/qtGlobalShotcut_automoc:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc, uic and rcc for target qtGlobalShotcut"
-	/usr/bin/cmake -E cmake_autogen /home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/ ""
+	/usr/bin/cmake -E cmake_autogen /home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_automoc.dir/ Release
 
 qtGlobalShotcut_automoc: CMakeFiles/qtGlobalShotcut_automoc
 qtGlobalShotcut_automoc: CMakeFiles/qtGlobalShotcut_automoc.dir/build.make

@@ -193,6 +193,7 @@ CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrlQuery
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
+CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractnativeeventfilter.h

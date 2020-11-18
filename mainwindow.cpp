@@ -22,6 +22,7 @@
 #include <QFont>
 #include <QUrlQuery>
 #include <QScreen>
+#include <QVector>
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
@@ -357,6 +358,8 @@ void MainWindow::recognitionByBaidu(){
     QByteArray byteArr;
     byteArr.append("image=");
     byteArr.append(QUrl::toPercentEncoding(parm));
+    byteArr.append("&paragraph=true");
+    // qDebug()<<byteArr;
     connect(nam, &QNetworkAccessManager::finished,this, &MainWindow::recognitionRequestByBaiduFinished);
     QNetworkReply* reply = nam->post(request,byteArr);
 }
@@ -378,22 +381,34 @@ void MainWindow::recognitionRequestByBaiduFinished(QNetworkReply* reply){
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
         if(parse_doucment.isObject()){
             QJsonObject obj = parse_doucment.object();
+            qDebug()<<obj;
+            
             int wordsNum = obj.take("words_result_num").toInt();
             if(wordsNum > 0){
+                QVector<QString> str_vec;
                 split_result.clear();
                 merge_result.clear();
                 QJsonArray jsonArr = obj.take("words_result").toArray();
                 for(int i=0;i<wordsNum;i++){
-                    split_result.append(jsonArr[i].toObject().take("words").toString());
-                    split_result.append("\n");
-                    merge_result.append(jsonArr[i].toObject().take("words").toString());
+                    str_vec.push_back(jsonArr[i].toObject().take("words").toString());
                 }
+                int para_num=obj.take("paragraphs_result_num").toInt();
+                jsonArr = obj.take("paragraphs_result").toArray();
+                for(int i=0;i<para_num;i++){
+                    QJsonArray temp=jsonArr[i].toObject().take("words_result_idx").toArray();
+                    for(int j=0;j<temp.size();j++){
+                        split_result.append(str_vec[temp[j].toInt()]);
+                        merge_result.append(str_vec[temp[j].toInt()]);
+                    }
+                    split_result.append("\n");
+                }    
                 ui->resultEdit->setText(split_result);
                 if(!split_result.isEmpty()&&copy_flag==1){
                     QClipboard *board = QApplication::clipboard();
                     board->setText(split_result);
                 }
             }
+   
             else{
                 QMessageBox::information(NULL, "提示", "无法识别图片内容");
             }

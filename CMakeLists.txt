@@ -40,6 +40,8 @@ ENDIF ()
 
 MESSAGE(STSTUS "###################################")
 
+
+
 add_library(qtGlobalShotcut SHARED ${SRC_FILES})
 target_link_libraries(qtGlobalShotcut  ${LIBS})
 

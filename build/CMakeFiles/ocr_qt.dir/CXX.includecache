@@ -125,6 +125,8 @@ QUrlQuery
 -
 QScreen
 -
+QVector
+-
 
 /home/seven/boot/ocr_qt/mainwindow.h
 QMainWindow
@@ -343,6 +345,10 @@ qurlquery.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
+qvector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
 qglobal.h

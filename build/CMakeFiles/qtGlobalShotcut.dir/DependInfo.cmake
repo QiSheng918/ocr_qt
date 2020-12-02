@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/seven/boot/ocr_qt/QHotkey/qhotkey.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/QHotkey/qhotkey.cpp.o"
   "/home/seven/boot/ocr_qt/QHotkey/qhotkey_x11.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/QHotkey/qhotkey_x11.cpp.o"
-  "/home/seven/boot/ocr_qt/build/qtGlobalShotcut_automoc.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/qtGlobalShotcut_automoc.cpp.o"
+  "/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/mocs_compilation.cpp" "/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir/qtGlobalShotcut_autogen/mocs_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -22,12 +22,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "../"
+  "qtGlobalShotcut_autogen/include"
   "../QHotkey"
   "/usr/include/x86_64-linux-gnu/qt5"
   "/usr/include/x86_64-linux-gnu/qt5/QtX11Extras"
   "/usr/include/x86_64-linux-gnu/qt5/QtGui"
   "/usr/include/x86_64-linux-gnu/qt5/QtCore"
-  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64"
+  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
   )
 
 # Targets to which this target links.

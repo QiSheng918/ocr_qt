@@ -10,6 +10,8 @@
 #include "QHotkey/qhotkey_p.h"
 
 
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -35,7 +37,6 @@ public:
 
 
 private slots:
-//    void recognition();
 
     void recognitionByBaidu();
     void recognitionByTencent();
@@ -83,6 +84,9 @@ private:
     QString screenshot_img_base64;
     QString split_result;
     QString merge_result;
+
+    int scale_factor;
+    
 
     QHotkey *qk;
 

@@ -8,12 +8,22 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+
+
+
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 message("start")
 
 find_package(Qt5 COMPONENTS Widgets Core Gui REQUIRED)
 find_package(Qt5Network)
+
+file(GLOB_RECURSE QRC_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.qrc)
+set(QRC_SOURCE_FILES image.qrc)
+QT5_ADD_RESOURCES(QRC_FILES ${QRC_SOURCE_FILES})
+# QT5_ADD_RESOURCES(IMAGE_RCC_SRCS ${IMAGE_RCCS})
+
 
 set(LIBs Qt5::Widgets Qt5::Core Qt5::Gui)
 INCLUDE_DIRECTORIES(
@@ -58,6 +68,7 @@ add_executable(ocr_qt
   setting.ui
   traymenu.h
   traymenu.cpp
+  ${QRC_FILES}
 )
 
 target_link_libraries(ocr_qt 

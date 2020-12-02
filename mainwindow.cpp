@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "screen.h"
 #include "traymenu.h"
+
 #include <QMessageBox>
 #include <QString>
 #include <QDebug>
@@ -24,14 +25,15 @@
 #include <QScreen>
 #include <QVector>
 
+// #define Debug
+
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     beginPos = this->pos();
     leftPress = false;
     this->setProperty("CanMove", true);
-    //实现无边框 (Qt::FramelessWindowHint去边框)  Qt::WindowStaysOnTopHint 窗体置顶 防止拖到任务栏下面
-    //this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinMaxButtonsHint|Qt::WindowStaysOnTopHint);
+
     QFont font_ch(tr("SimSun"),11);
     font_ch.setStretch(100);
     font_ch.setWeight(25);
@@ -40,8 +42,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     font_en.setWeight(25);
     ui->resultEdit->setFont(font_ch);
     ui->resultEdit->setFont(font_en);
-
-
     ui->translateEdit->setFont(font_ch);
     ui->translateEdit->setFont(font_en);
 
@@ -53,8 +53,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->mergeButton,SIGNAL(clicked()),this,SLOT(onMergeButtonClicked()));
     connect(ui->exitTranslateButton,SIGNAL(clicked()),this,SLOT(onExitTranslateButtonClicked()));
 
-    this->setWindowIcon(QIcon("./ocr.png"));
-    this->resize(500,500);
+    QScreen *screen = QGuiApplication::primaryScreen();
+    scale_factor=2;
+    this->setWindowIcon(QIcon(":/image/icon.png"));
+    this->resize(500*scale_factor,500*scale_factor);
+    
     ui->frame->hide();
 
     pSystemTray = new QSystemTrayIcon(this);
@@ -63,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     pSystemTray->setContextMenu(pTrayMenu);
 
     pSystemTray->setToolTip("OCR软件");
-    pSystemTray->setIcon(QIcon("./ocr.png"));
+    pSystemTray->setIcon(QIcon(":/image/icon.png"));
 
     connect(pTrayMenu, SIGNAL(showSettings()), this, SLOT(showSettings()));
     connect(pTrayMenu, SIGNAL(quit()), qApp, SLOT(quit()));
@@ -76,7 +79,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     qk=new QHotkey(QKeySequence("ctrl+q"), true);
     connect(qk, SIGNAL(activated()),this, SLOT(onScreenshotClicked()));
 
-    qDebug()<<"program started!";
+    #ifdef Debug
+        qDebug()<<"program started!";
+    #endif
+
     this->hide();
 }
 
@@ -86,10 +92,23 @@ void MainWindow::onActivated(QSystemTrayIcon::ActivationReason reason){
 
 MainWindow::~MainWindow(){
     delete ui;
-    if(pSystemTray!=NULL) delete  pSystemTray;
-    if(m_setting!=NULL) delete m_setting;
-    if(nam!=NULL) delete nam;
-    if(qk!=NULL) delete qk;
+    ui=nullptr;
+    if(pSystemTray!=nullptr){
+        delete  pSystemTray;
+        pSystemTray=nullptr;
+    }
+    if(m_setting!=nullptr){
+        delete m_setting;
+        m_setting=nullptr;
+    }
+    if(nam!=nullptr){
+        delete nam;
+        nam=nullptr;
+    }
+    if(qk!=nullptr){
+        delete qk;
+        qk=nullptr;
+    }
 }
 
 void MainWindow::showSettings(){
@@ -103,7 +122,6 @@ void MainWindow::closeSettings(){
         m_setting->hide();
         m_setting->deleteLater();        
     }
-    
     this->loadConfigSettings();
 }
 
@@ -145,21 +163,25 @@ void MainWindow::onScreenshotClicked(){
     while( QTime::currentTime() < _Timer ){
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
-//    qDebug()<<windowState();
+
+
 
     ui->resultEdit->setPlainText("");
     Screen *m = new Screen();
     QObject::connect(m,SIGNAL(sendNewStr(QString)),this,SLOT(getScreenshotImgBase64Str(QString)));
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect temp=screen->geometry();
-//    qDebug()<<temp;
-//    m->fullScreen = screen->grabWindow(0);
-//    QDesktopWidget* desktop = QApplication::desktop();
-//    qDebug()<<desktop->screenGeometry(0);
-//    m->setGeometry(desktop->screenGeometry(0));
+    #ifdef Debug
+        qDebug()<<temp;
+        m->fullScreen = screen->grabWindow(0);
+        QDesktopWidget* desktop = QApplication::desktop();
+        qDebug()<<desktop->screenGeometry(0);
+        m->setGeometry(desktop->screenGeometry(0));
+    #endif
 
     m->fullScreen = screen->grabWindow(0,temp.left(),temp.top(),temp.width(),temp.height());
     m->showFullScreen();
+    screen->deleteLater();
 }
 
 
@@ -174,7 +196,9 @@ void MainWindow::translateByYoudao(){
     nam = new QNetworkAccessManager(this);
     QNetworkRequest request;
     QString temp=ui->resultEdit->toPlainText();
-    qDebug()<<temp;
+    #ifdef Debug
+        qDebug()<<temp;
+    #endif
 
     QUrl url;
     url.setUrl("http://fanyi.youdao.com/translate?");
@@ -206,8 +230,10 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
     else {
         QJsonParseError json_error;
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
-        // qDebug()<<parse_doucment;
-        qDebug()<<parse_doucment.isEmpty();
+        #ifdef Debug
+            qDebug()<<parse_doucment;
+        #endif
+
         if(parse_doucment.isEmpty()){
             qDebug()<<"Failed";
             return;
@@ -216,15 +242,16 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
             QJsonObject obj = parse_doucment.object();
             QJsonArray Array=obj["translateResult"].toArray();
             QString temp;
-//            qDebug()<<Array.size();
             for(int i=0;i<Array.size();i++){
                 temp+=Array[i].toArray()[0].toObject()["tgt"].toString();
-                // temp+="\n";
+      
             }
             ui->translateEdit->setText(temp);
             ui->frame->show();
             this->resize(1000,500);
-            // qDebug()<<temp;
+            #ifdef Debug
+                qDebug()<<temp;
+            #endif
         }
     }
     nam->deleteLater();
@@ -263,7 +290,11 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
     else {
         QJsonParseError json_error;
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
-        // qDebug()<<parse_doucment;
+
+        #ifdef Debug
+            qDebug()<<parse_doucment;
+        #endif
+
         if(parse_doucment.isEmpty()){
             qDebug()<<"Failed";
             return;
@@ -279,7 +310,9 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
             ui->translateEdit->setText(temp);
             ui->frame->show();
             this->resize(1000,500);
-//            qDebug()<<temp;
+            #ifdef Debug
+                qDebug()<<temp;
+            #endif
         }
     }
     nam->deleteLater();
@@ -359,7 +392,9 @@ void MainWindow::recognitionByBaidu(){
     byteArr.append("image=");
     byteArr.append(QUrl::toPercentEncoding(parm));
     byteArr.append("&paragraph=true");
-    // qDebug()<<byteArr;
+    #ifdef Debug
+        qDebug()<<byteArr;
+    #endif
     connect(nam, &QNetworkAccessManager::finished,this, &MainWindow::recognitionRequestByBaiduFinished);
     QNetworkReply* reply = nam->post(request,byteArr);
 }
@@ -381,8 +416,9 @@ void MainWindow::recognitionRequestByBaiduFinished(QNetworkReply* reply){
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
         if(parse_doucment.isObject()){
             QJsonObject obj = parse_doucment.object();
-            qDebug()<<obj;
-            
+            #ifdef Debug
+                qDebug()<<obj;
+            #endif
             int wordsNum = obj.take("words_result_num").toInt();
             if(wordsNum > 0){
                 QVector<QString> str_vec;
@@ -484,15 +520,15 @@ void MainWindow::recognitionRequestByTencentFinished(QNetworkReply* reply){
         // 获取返回内容
         QJsonParseError json_error;
         QJsonDocument parse_doucment = QJsonDocument::fromJson(reply->readAll(), &json_error);
-//        qDebug()<<parse_doucment;
+        #ifdef Debug
+            qDebug()<<parse_doucment;
+        #endif 
         if(parse_doucment.isObject()){
             QJsonObject obj = parse_doucment.object();
             int ret_flag = obj["ret"].toInt();
             if(ret_flag == 0){
                 split_result.clear();
                 merge_result.clear();
-
-//                qDebug()<<obj["data"].toObject()["item_list"].toArray();
                 QJsonArray jsonArr = obj["data"].toObject()["item_list"].toArray();
                 for(int i=0;i<jsonArr.size();i++){
                     split_result.append(jsonArr[i].toObject()["itemstring"].toString());

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -60,27 +60,27 @@ X11/Xlib.h
 xcb/xcb.h
 -
 
-/home/seven/boot/ocr_qt/build/moc_qhotkey.cpp
-../QHotkey/qhotkey.h
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/CDZSFYPHEU/moc_qhotkey.cpp
+../../../QHotkey/qhotkey.h
 /home/seven/boot/ocr_qt/QHotkey/qhotkey.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/boot/ocr_qt/build/moc_qhotkey_p.cpp
-../QHotkey/qhotkey_p.h
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/CDZSFYPHEU/moc_qhotkey_p.cpp
+../../../QHotkey/qhotkey_p.h
 /home/seven/boot/ocr_qt/QHotkey/qhotkey_p.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/seven/boot/ocr_qt/build/qtGlobalShotcut_automoc.cpp
-moc_qhotkey.cpp
-/home/seven/boot/ocr_qt/build/moc_qhotkey.cpp
-moc_qhotkey_p.cpp
-/home/seven/boot/ocr_qt/build/moc_qhotkey_p.cpp
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/mocs_compilation.cpp
+CDZSFYPHEU/moc_qhotkey.cpp
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/CDZSFYPHEU/moc_qhotkey.cpp
+CDZSFYPHEU/moc_qhotkey_p.cpp
+/home/seven/boot/ocr_qt/build/qtGlobalShotcut_autogen/CDZSFYPHEU/moc_qhotkey_p.cpp
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractEventDispatcher
 qabstracteventdispatcher.h
@@ -147,6 +147,8 @@ QtCore/qnamespace.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 QtCore/qglobal.h
 -
+intrin.h
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 QtCore/qrefcount.h
@@ -160,18 +162,6 @@ QtCore/qglobal.h
 QtCore/qbasicatomic.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_armv5.h
-QtCore/qgenericatomic.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_armv6.h
-QtCore/qgenericatomic.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_armv7.h
-QtCore/qatomic_armv6.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qatomic_armv6.h
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_bootstrap.h
 QtCore/qgenericatomic.h
 -
@@ -182,29 +172,7 @@ QtCore/qgenericatomic.h
 atomic
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_gcc.h
-QtCore/qgenericatomic.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_ia64.h
-QtCore/qgenericatomic.h
--
-ia64intrin.h
--
-ia64/sys/inline.h
--
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
-QtCore/qgenericatomic.h
--
-winbase.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_unix.h
-QtCore/qgenericatomic.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_x86.h
 QtCore/qgenericatomic.h
 -
 
@@ -215,25 +183,7 @@ QtCore/qatomic_bootstrap.h
 -
 QtCore/qatomic_cxx11.h
 -
-QtCore/qatomic_gcc.h
--
 QtCore/qatomic_msvc.h
--
-QtCore/qatomic_armv7.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qatomic_armv7.h
-QtCore/qatomic_armv6.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qatomic_armv6.h
-QtCore/qatomic_armv5.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qatomic_armv5.h
-QtCore/qatomic_ia64.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qatomic_ia64.h
-QtCore/qatomic_x86.h
--
-QtCore/qatomic_cxx11.h
--
-QtCore/qatomic_gcc.h
--
-QtCore/qatomic_unix.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
@@ -250,6 +200,8 @@ string.h
 stdarg.h
 -
 string
+-
+iterator
 -
 QtCore/qstring.h
 -
@@ -269,6 +221,8 @@ QtCore/qglobal.h
 -
 utility
 -
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig-bootstrapped.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h
 
@@ -327,19 +281,23 @@ QtCore/qset.h
 -
 QtCore/qcontiguouscache.h
 -
+QtCore/qsharedpointer.h
+-
+vector
+-
+list
+-
+map
+-
+utility
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
 QtCore/qobject.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
 QtCore/qglobal.h
--
-QtCore/qtypeinfo.h
--
-QtCore/qtypetraits.h
 -
 initializer_list
 -
@@ -351,13 +309,19 @@ QtCore/qtypeinfo.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h
+type_traits
+-
 cstddef
+-
+utility
 -
 stddef.h
 -
+QtCore/qconfig-bootstrapped.h
+-
 QtCore/qconfig.h
 -
-QtCore/qfeatures.h
+QtCore/qtcore-config.h
 -
 QtCore/qsystemdetection.h
 -
@@ -381,6 +345,8 @@ QtCore/qglobalstatic.h
 -
 QtCore/qnumeric.h
 -
+QtCore/qversiontagging.h
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h
 QtCore/qglobal.h
@@ -397,13 +363,21 @@ QtCore/qiterator.h
 -
 QtCore/qlist.h
 -
-QtCore/qpair.h
--
 QtCore/qrefcount.h
 -
-numeric
+QtCore/qhashfunctions.h
 -
 initializer_list
+-
+algorithm
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
+QtCore/qchar.h
+-
+QtCore/qpair.h
+-
+numeric
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
@@ -418,12 +392,6 @@ QtCore/qscopedpointer.h
 QtCore/qstring.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h
-QtCore/qglobal.h
--
-QtCore/qtypetraits.h
--
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
 QtCore/qglobal.h
 -
@@ -436,6 +404,8 @@ QtCore/qiterator.h
 QtCore/qrefcount.h
 -
 QtCore/qarraydata.h
+-
+QtCore/qhashfunctions.h
 -
 iterator
 -
@@ -493,6 +463,8 @@ map
 -
 new
 -
+functional
+-
 initializer_list
 -
 
@@ -511,10 +483,6 @@ QtCore/qbytearray.h
 -
 QtCore/qvarlengtharray.h
 -
-QtCore/qisenum.h
--
-QtCore/qtypetraits.h
--
 QtCore/qobjectdefs.h
 -
 new
@@ -532,6 +500,10 @@ QtCore/qglobal.h
 QtCore/qatomic.h
 -
 new
+-
+chrono
+-
+limits
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -558,6 +530,8 @@ QtCore/qscopedpointer.h
 QtCore/qmetatype.h
 -
 QtCore/qobject_impl.h
+-
+chrono
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h
@@ -605,6 +579,8 @@ QtCore/qhash.h
 -
 initializer_list
 -
+iterator
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
 QtCore/qglobal.h
@@ -612,6 +588,30 @@ QtCore/qglobal.h
 QtCore/qatomic.h
 -
 QtCore/qhash.h
+-
+QtCore/qhashfunctions.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h
+QtCore/qglobal.h
+-
+QtCore/qatomic.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qsharedpointer_impl.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h
+new
+-
+QtCore/qatomic.h
+-
+QtCore/qobject.h
+-
+QtCore/qhash.h
+-
+QtCore/qhashfunctions.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
@@ -624,6 +624,8 @@ QtCore/qrefcount.h
 QtCore/qnamespace.h
 -
 string
+-
+iterator
 -
 stdarg.h
 -
@@ -668,6 +670,8 @@ Availability.h
 AvailabilityMacros.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcore-config.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 QtCore/qiodevice.h
 -
@@ -693,13 +697,7 @@ QtCore/qglobal.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
-QtCore/qtypetraits.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h
 QtCore/qglobal.h
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qglobal.h
-utility
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
@@ -741,6 +739,8 @@ algorithm
 -
 initializer_list
 -
+iterator
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 QtCore/qalgorithms.h
@@ -752,6 +752,8 @@ QtCore/qlist.h
 QtCore/qrefcount.h
 -
 QtCore/qarraydata.h
+-
+QtCore/qhashfunctions.h
 -
 iterator
 -
@@ -768,16 +770,28 @@ algorithm
 QtCore/qpoint.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
+QtCore/qglobal.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QKeySequence
 qkeysequence.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
-QtCore/qnamespace.h
+QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
 -
 QtCore/qobjectdefs.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
+QtCore/qglobal.h
+-
+QtGui/qtgui-config.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtX11Extras/QX11Info

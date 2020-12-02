@@ -47,18 +47,29 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     this->loadConfigSettings();
 
+    // if(key.length()==0) key="GTriuZhvQGNMdvD7cetv1MFa";
+    // if(secret.length()==0) key="GTriuZhvQGNMdvD7cetv1MFa";
+
+
     connect(ui->screenshotButton,SIGNAL(clicked()),this,SLOT(onScreenshotClicked()));
     connect(ui->translateButton,SIGNAL(clicked()),this,SLOT(onTranslateClicked()));
     connect(ui->splitButton,SIGNAL(clicked()),this,SLOT(onSplitButtonClicked()));
     connect(ui->mergeButton,SIGNAL(clicked()),this,SLOT(onMergeButtonClicked()));
     connect(ui->exitTranslateButton,SIGNAL(clicked()),this,SLOT(onExitTranslateButtonClicked()));
 
-    QScreen *screen = QGuiApplication::primaryScreen();
-    scale_factor=2;
-    this->setWindowIcon(QIcon(":/image/icon.png"));
-    this->resize(500*scale_factor,500*scale_factor);
     
+    scale_factor=QGuiApplication::primaryScreen()->geometry().width()/1920.0;
+    this->setWindowIcon(QIcon(":/image/icon.png"));
+    this->setMinimumSize(QSize(int(500*scale_factor),int(500*scale_factor)));
+    this->setMaximumSize(QSize(int(1000*scale_factor),int(500*scale_factor)));
+    this->resize(int(500*scale_factor),int(500*scale_factor));
     ui->frame->hide();
+
+    #ifdef Debug
+        qDebug()<<this->size();
+        qDebug()<<scale_factor;
+        qDebug()<<QGuiApplication::primaryScreen()->geometry();
+    #endif
 
     pSystemTray = new QSystemTrayIcon(this);
     TrayMenu *pTrayMenu = new TrayMenu(this);
@@ -128,11 +139,10 @@ void MainWindow::closeSettings(){
 void MainWindow::getScreenshotImgBase64Str(QString str) {
     screenshot_img_base64=str;
     if(key.isEmpty() || secret.isEmpty()){
-        QMessageBox::information(NULL, "错误", "百度密钥不能为空");
+        QMessageBox::information(nullptr, "错误", "百度密钥不能为空");
         return;
     }
     getTextByApi();
-//    this->show();
 }
 
 void MainWindow::showMainwindow() {
@@ -181,7 +191,7 @@ void MainWindow::onScreenshotClicked(){
 
     m->fullScreen = screen->grabWindow(0,temp.left(),temp.top(),temp.width(),temp.height());
     m->showFullScreen();
-    screen->deleteLater();
+    // screen->deleteLater();
 }
 
 
@@ -225,7 +235,7 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
     QNetworkReply::NetworkError err = reply->error();
     if(err != QNetworkReply::NoError) {
         qDebug() << "Failed: " << reply->errorString();
-        QMessageBox::information(NULL, "错误", "翻译出错");
+        QMessageBox::information(nullptr, "错误", "翻译出错");
     }
     else {
         QJsonParseError json_error;
@@ -248,7 +258,8 @@ void MainWindow::getTranslateByYoudaoRequestFinished(QNetworkReply* reply) {
             }
             ui->translateEdit->setText(temp);
             ui->frame->show();
-            this->resize(1000,500);
+            this->resize(int(1000*scale_factor),int(500*scale_factor));
+
             #ifdef Debug
                 qDebug()<<temp;
             #endif
@@ -285,7 +296,7 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
     QNetworkReply::NetworkError err = reply->error();
     if(err != QNetworkReply::NoError) {
         qDebug() << "Failed: " << reply->errorString();
-        QMessageBox::information(NULL, "错误", "翻译出错");
+        QMessageBox::information(nullptr, "错误", "翻译出错");
     }
     else {
         QJsonParseError json_error;
@@ -309,7 +320,8 @@ void MainWindow::getTranslateByGoogleRequestFinished(QNetworkReply* reply) {
             }
             ui->translateEdit->setText(temp);
             ui->frame->show();
-            this->resize(1000,500);
+            this->resize(int(1000*scale_factor),int(500*scale_factor));
+
             #ifdef Debug
                 qDebug()<<temp;
             #endif
@@ -374,7 +386,7 @@ void MainWindow::recognitionByBaidu(){
     this->getAccessToken();
     QString parm=screenshot_img_base64;
     if(parm.isEmpty()){
-        QMessageBox::information(NULL, "错误", "图像数据不能为空");
+        QMessageBox::information(nullptr, "错误", "图像数据不能为空");
         return;
     }
     nam = new QNetworkAccessManager(this);
@@ -408,7 +420,7 @@ void MainWindow::recognitionRequestByBaiduFinished(QNetworkReply* reply){
     QNetworkReply::NetworkError err = reply->error();
     if(err != QNetworkReply::NoError) {
         qDebug() << "Failed: " << reply->errorString();
-        QMessageBox::information(NULL, "错误", "识别出错");
+        QMessageBox::information(nullptr, "错误", "识别出错");
     }
     else {
         // 获取返回内容
@@ -446,7 +458,7 @@ void MainWindow::recognitionRequestByBaiduFinished(QNetworkReply* reply){
             }
    
             else{
-                QMessageBox::information(NULL, "提示", "无法识别图片内容");
+                QMessageBox::information(nullptr, "提示", "无法识别图片内容");
             }
         }
 
@@ -466,7 +478,7 @@ void MainWindow::recognitionByTencent(){
 //    qDebug()<<"U are in recognitionByTencent";
     QString parm=screenshot_img_base64;
     if(parm.isEmpty()){
-        QMessageBox::information(NULL, "错误", "图像数据不能为空");
+        QMessageBox::information(nullptr, "错误", "图像数据不能为空");
         return;
     }
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
@@ -514,7 +526,7 @@ void MainWindow::recognitionRequestByTencentFinished(QNetworkReply* reply){
     QNetworkReply::NetworkError err = reply->error();
     if(err != QNetworkReply::NoError) {
         qDebug() << "Failed: " << reply->errorString();
-        QMessageBox::information(NULL, "错误", "识别出错");
+        QMessageBox::information(nullptr, "错误", "识别出错");
     }
     else {
         // 获取返回内容
@@ -638,5 +650,5 @@ void MainWindow::onExitTranslateButtonClicked()
 {
     ui->frame->hide();
     ui->translateEdit->clear();
-    this->resize(500,500);
+    this->resize(int(500*scale_factor),int(500*scale_factor));
 }

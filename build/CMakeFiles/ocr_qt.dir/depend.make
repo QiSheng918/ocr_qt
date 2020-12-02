@@ -407,7 +407,7 @@ CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidg
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
-CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: ui_mainwindow.h
+CMakeFiles/ocr_qt.dir/mainwindow.cpp.o: ocr_qt_autogen/include/ui_mainwindow.h
 
 CMakeFiles/ocr_qt.dir/ocr_qt_autogen/mocs_compilation.cpp.o: ../QHotkey/qhotkey.h
 CMakeFiles/ocr_qt.dir/ocr_qt_autogen/mocs_compilation.cpp.o: ../QHotkey/qhotkey_p.h
@@ -955,7 +955,7 @@ CMakeFiles/ocr_qt.dir/setting.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets
 CMakeFiles/ocr_qt.dir/setting.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
 CMakeFiles/ocr_qt.dir/setting.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/ocr_qt.dir/setting.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
-CMakeFiles/ocr_qt.dir/setting.cpp.o: ui_setting.h
+CMakeFiles/ocr_qt.dir/setting.cpp.o: ocr_qt_autogen/include/ui_setting.h
 
 CMakeFiles/ocr_qt.dir/traymenu.cpp.o: ../traymenu.cpp
 CMakeFiles/ocr_qt.dir/traymenu.cpp.o: ../traymenu.h

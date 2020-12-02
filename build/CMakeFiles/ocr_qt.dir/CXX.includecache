@@ -2310,7 +2310,7 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-ui_mainwindow.h
+ocr_qt_autogen/include/ui_mainwindow.h
 QtCore/QVariant
 -
 QtWidgets/QAction
@@ -2338,7 +2338,7 @@ QtWidgets/QVBoxLayout
 QtWidgets/QWidget
 -
 
-ui_setting.h
+ocr_qt_autogen/include/ui_setting.h
 QtCore/QVariant
 -
 QtWidgets/QAction

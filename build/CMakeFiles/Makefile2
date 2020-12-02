@@ -100,8 +100,8 @@ clean: CMakeFiles/qtGlobalShotcut.dir/clean
 # Target rules for target CMakeFiles/ocr_qt.dir
 
 # All Build rule for target.
-CMakeFiles/ocr_qt.dir/all: CMakeFiles/qtGlobalShotcut.dir/all
 CMakeFiles/ocr_qt.dir/all: CMakeFiles/ocr_qt_autogen.dir/all
+CMakeFiles/ocr_qt.dir/all: CMakeFiles/qtGlobalShotcut.dir/all
 	$(MAKE) -f CMakeFiles/ocr_qt.dir/build.make CMakeFiles/ocr_qt.dir/depend
 	$(MAKE) -f CMakeFiles/ocr_qt.dir/build.make CMakeFiles/ocr_qt.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/seven/boot/ocr_qt/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target ocr_qt"

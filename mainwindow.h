@@ -85,7 +85,7 @@ private:
     QString split_result;
     QString merge_result;
 
-    int scale_factor;
+    double scale_factor;
     
 
     QHotkey *qk;

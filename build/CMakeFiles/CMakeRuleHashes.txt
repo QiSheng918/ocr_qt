@@ -1,4 +1,4 @@
 # Hashes of file build rules.
-d3daa4cb9b0066dcd8bf5127f2922611 CMakeFiles/ocr_qt_autogen
-053622d4dfa421b8697099faceb1bda4 CMakeFiles/qtGlobalShotcut_autogen
+9e8f65699917e471e8f2bed33759ffde CMakeFiles/ocr_qt_autogen
+8a2d3bb5c3680f57b28f2b95d1d64563 CMakeFiles/qtGlobalShotcut_autogen
 e9482da4f5d382fa62457956c4cdd342 qrc_image.cpp

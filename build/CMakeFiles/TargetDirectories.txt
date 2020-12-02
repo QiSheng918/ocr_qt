@@ -1,6 +1,0 @@
-/home/seven/boot/ocr_qt/build/CMakeFiles/rebuild_cache.dir
-/home/seven/boot/ocr_qt/build/CMakeFiles/edit_cache.dir
-/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut.dir
-/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt.dir
-/home/seven/boot/ocr_qt/build/CMakeFiles/qtGlobalShotcut_autogen.dir
-/home/seven/boot/ocr_qt/build/CMakeFiles/ocr_qt_autogen.dir

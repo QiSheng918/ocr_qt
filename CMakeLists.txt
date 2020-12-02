@@ -1,80 +1,84 @@
 cmake_minimum_required(VERSION 3.5)
-
-project(ocr_qt LANGUAGES CXX)
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
-
-
-
+project(ocr_qt)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-message("start")
 
-find_package(Qt5 COMPONENTS Widgets Core Gui REQUIRED)
-find_package(Qt5Network)
+# 直接让cmake自动转换qt中qrc，ui，包含QOBJECT的头文件
+# set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+# set(CMAKE_AUTORCC ON)
 
-file(GLOB_RECURSE QRC_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.qrc)
-set(QRC_SOURCE_FILES image.qrc)
-QT5_ADD_RESOURCES(QRC_FILES ${QRC_SOURCE_FILES})
-# QT5_ADD_RESOURCES(IMAGE_RCC_SRCS ${IMAGE_RCCS})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+find_package(Qt5 COMPONENTS Widgets Core Gui Network REQUIRED)
 
 
-set(LIBs Qt5::Widgets Qt5::Core Qt5::Gui)
 INCLUDE_DIRECTORIES(
-   QHotkey
+   QHotkey/
+   include/
+   ${PROJECT_SOURCE_DIR}
+   ${QT5_INCLUDE_DIRS} 
 )
 
-set(SRC_FILES  QHotkey/qhotkey.cpp)
+set(Q_GLOBALSHOTCUT_LIBS Qt5::Widgets Qt5::Core Qt5::Gui)
+set(Q_GLOBALSHOTCUT_SRC_FILES  QHotkey/qhotkey.cpp)
 
 MESSAGE(STSTUS "###################################")
 MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}") 
+
 IF (WIN32)
 	MESSAGE(STATUS "Now is windows")
-	set(SRC_FILES ${SRC_FILES} QHotkey/qhotkey_win.cpp)
+  set(SRC_FILES ${SRC_FILES} QHotkey/qhotkey_win.cpp)
+  
 ELSEIF (UNIX)
 	MESSAGE(STATUS "Now is UNIX-like OS's.")
 	find_package(X11 REQUIRED)
-    find_package(Qt5X11Extras REQUIRED)
-    include_directories(${X11_INCLUDE_DIR})
-    set(LIBS ${LIBS} ${X11_LIBRARIES} Qt5::X11Extras)
-    set(SRC_FILES ${SRC_FILES} QHotkey/qhotkey_x11.cpp)
+  find_package(Qt5X11Extras REQUIRED)
+  include_directories(${X11_INCLUDE_DIR})
+  set(Q_GLOBALSHOTCUT_LIBS ${Q_GLOBALSHOTCUT_LIBS} ${X11_LIBRARIES} Qt5::X11Extras)
+  set(Q_GLOBALSHOTCUT_SRC_FILES ${Q_GLOBALSHOTCUT_SRC_FILES} QHotkey/qhotkey_x11.cpp)
 ELSEIF (APPLE)
 	MESSAGE(STATUS "Now is Apple systens.")
 ENDIF ()
 
 MESSAGE(STSTUS "###################################")
 
+add_library(qglobalshotcut SHARED ${Q_GLOBALSHOTCUT_SRC_FILES})
+target_link_libraries(qglobalshotcut ${Q_GLOBALSHOTCUT_LIBS})
 
 
-add_library(qtGlobalShotcut SHARED ${SRC_FILES})
-target_link_libraries(qtGlobalShotcut  ${LIBS})
+# 手动添加qrc文件，将qrc文件转换为*_qrc.cpp文件
+FILE(GLOB_RECURSE QRC_SOURCE_FILES resource/*.qrc)
+QT5_ADD_RESOURCES(QRC_FILES ${QRC_SOURCE_FILES})
+MESSAGE(STATUS ${QRC_FILES})
 
-add_executable(ocr_qt
-  main.cpp
-  screen.h
-  screen.cpp
-  screen.ui
-  mainwindow.cpp
-  mainwindow.h
-  mainwindow.ui
-  setting.h
-  setting.cpp
-  setting.ui
-  traymenu.h
-  traymenu.cpp
-  ${QRC_FILES}
+# 手动添加ui文件，将ui文件转换为ui_*.hpp文件
+FILE(GLOB_RECURSE QUI_SOURCE_FILES ui/*.ui)
+QT5_WRAP_UI(UI_FILES ${QUI_SOURCE_FILES})
+MESSAGE(STATUS ${UI_FILES})
+
+# 手动添加moc文件，将h文件转换为moc_*.hpp文件
+FILE(GLOB_RECURSE QMOC_SOURCE_FILES include/*.h)
+QT5_WRAP_CPP(MOC_FILES ${QMOC_SOURCE_FILES})
+MESSAGE(STATUS ${MOC_FILES})
+
+
+set(qt_src_files
+    src/screen.cpp
+    src/mainwindow.cpp
+    src/setting.cpp
+    src/traymenu.cpp
+    ${QRC_FILES}
+    ${UI_FILES}
+    ${MOC_FILES}
 )
 
-target_link_libraries(ocr_qt 
-Qt5::Widgets 
-Qt5::Core 
-Qt5::Network 
-Qt5::Gui
-qtGlobalShotcut
+add_library(qmainwindow SHARED ${qt_src_files})
+target_link_libraries(qmainwindow  Qt5::Widgets 
+    Qt5::Core 
+    Qt5::Network 
+    Qt5::Gui
+    qglobalshotcut
 )
+
+add_executable(ocr_qt src/main.cpp)
+target_link_libraries(ocr_qt qmainwindow)

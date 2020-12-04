@@ -106,7 +106,7 @@ void Screen::setEndPos(QPoint p)//设置鼠标的结束位置
      QPainter painter(this); //将当前窗体对象设置为画布
      QPen pen;
      pen.setColor(Qt::red);//设置笔色
-     pen.setWidth(1);     //画笔线条宽度
+     pen.setWidth(5);     //画笔线条宽度
      painter.setPen(pen);//设置画笔
 
      int lx = beginPos.x()<endPos.x()?beginPos.x():endPos.x();//矩形截图区域左上角x坐标
@@ -139,7 +139,7 @@ void Screen::setEndPos(QPoint p)//设置鼠标的结束位置
  void Screen::showEvent(QShowEvent *) //--窗体show事件
  {
       //设置透明度实现模糊背景
-     setWindowOpacity(0.7);
+     setWindowOpacity(0.5);
 
  }
 

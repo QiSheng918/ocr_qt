@@ -28,6 +28,9 @@
     <height>500000</height>
    </size>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::WheelFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>OCR_QT</string>
   </property>
@@ -112,7 +115,7 @@
               </size>
              </property>
              <property name="text">
-              <string>翻译</string>
+              <string>截图</string>
              </property>
             </widget>
            </item>

@@ -36,6 +36,7 @@ public:
 
 
 
+
 private slots:
 
     void recognitionByBaidu();
@@ -66,6 +67,7 @@ private slots:
     void onActivated(QSystemTrayIcon::ActivationReason reason);
     
     void showMainwindow();
+    void on_TimeOut();
 
 private:
     Ui::MainWindow *ui;
@@ -88,7 +90,7 @@ private:
     double scale_factor;
     
 
-    QHotkey *qk;
+    QHotkey *screenshot_qk,*close_qk;
 
     QSystemTrayIcon *pSystemTray;
     setting *m_setting;

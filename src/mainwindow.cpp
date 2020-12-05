@@ -90,7 +90,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect(screenshot_qk, SIGNAL(activated()), this, SLOT(onScreenshotClicked()));
 
-    close_qk = new QHotkey(QKeySequence("ctrl+w"), false);
+    close_qk = new QShortcut(this);
+    close_qk->setKey(QKeySequence("ctrl+w"));
     connect(close_qk, SIGNAL(activated()), this, SLOT(hide()));
 
 #ifdef Debug
@@ -98,9 +99,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 #endif
 
     this->hide();
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(on_TimeOut()));  
-    timer->start(50);  
+    // QTimer *timer = new QTimer(this);
+    // connect(timer, SIGNAL(timeout()), this, SLOT(on_TimeOut()));  
+    // timer->start(50);  
 }
 
 void MainWindow::onActivated(QSystemTrayIcon::ActivationReason reason)
@@ -729,10 +730,10 @@ void MainWindow::onExitTranslateButtonClicked()
     this->resize(int(500 * scale_factor), int(500 * scale_factor));
 }
 
-void MainWindow::on_TimeOut(){
-#ifdef Debug
-    qDebug()<<this->isActiveWindow();
-#endif
-    close_qk->setRegistered(this->isActiveWindow());
-}
+// void MainWindow::on_TimeOut(){
+// #ifdef Debug
+//     qDebug()<<this->isActiveWindow();
+// #endif
+//     close_qk->setRegistered(this->isActiveWindow());
+// }
 

@@ -5,6 +5,7 @@
 #include <QNetworkAccessManager>
 #include <QSystemTrayIcon>
 #include <QCloseEvent>
+#include <QShortcut>
 #include "setting.h"
 #include "QHotkey/qhotkey.h"
 #include "QHotkey/qhotkey_p.h"
@@ -67,7 +68,7 @@ private slots:
     void onActivated(QSystemTrayIcon::ActivationReason reason);
     
     void showMainwindow();
-    void on_TimeOut();
+    // void on_TimeOut();
 
 private:
     Ui::MainWindow *ui;
@@ -90,7 +91,8 @@ private:
     double scale_factor;
     
 
-    QHotkey *screenshot_qk,*close_qk;
+    QHotkey *screenshot_qk;
+    QShortcut *close_qk;
 
     QSystemTrayIcon *pSystemTray;
     setting *m_setting;
